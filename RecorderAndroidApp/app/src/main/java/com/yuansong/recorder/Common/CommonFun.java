@@ -5,6 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.support.v7.app.AppCompatActivity;
+import android.view.WindowManager;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.yuansong.recorder.HelloActivity;
 import com.yuansong.recorder.LoginActivity;
@@ -14,6 +17,8 @@ import com.yuansong.recorder.LoginActivity;
  */
 
 public class CommonFun {
+
+    private CommonFun(){}
 
     public static String createNewGuid(){
         return java.util.UUID.randomUUID().toString().toUpperCase();
@@ -26,5 +31,39 @@ public class CommonFun {
             context.finish();
         }
         context.startActivity(it);
+    }
+
+    public static void setFocus(AppCompatActivity activity, EditText et){
+        //设置焦点
+        et.setFocusable(true);
+        et.setFocusableInTouchMode(true);
+        et.requestFocus();
+        //弹出键盘
+//        activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+        activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+    }
+
+    public static void showMsg(AppCompatActivity activity, String msg){
+//        Toast.makeText(activity.getApplicationContext(), msg,Toast.LENGTH_SHORT).show();
+        if("main".equals(Thread.currentThread().getName())){
+            Toast.makeText(activity.getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
+        }else{
+            final AppCompatActivity mAct = activity;
+            final String mMsg = msg;
+            // 子线程
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(mAct.getApplicationContext(), mMsg, Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
+
+    public static void showError(AppCompatActivity activity,String msg,boolean isQuit){
+        CommonFun.showMsg(activity,msg);
+        if(isQuit){
+            activity.finish();
+        }
     }
 }

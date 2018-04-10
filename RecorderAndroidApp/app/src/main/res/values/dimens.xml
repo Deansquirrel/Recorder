@@ -9,7 +9,8 @@
     <dimen name="height_margin_thin">8dp</dimen>
     <dimen name="height_margin_thick">32dp</dimen>
 
-    <!--Activity 默认 ActionBar的高度-->
+    <!--主页导航按钮高度-->
+    <dimen name="height_activity_main_nav_button">80dp</dimen>
 
 
     <!--文本默认大小-->
@@ -22,14 +23,14 @@
     <dimen name="height_context_line_default">30dp</dimen>
 
     <!--Activity 登录 ActionBar的高度-->
-    <dimen name="height_actionbar_activity_login">60dp</dimen>
+    <dimen name="height_actionbar_activity_login">90dp</dimen>
+    <dimen name="text_size_login_title">50dp</dimen>
 
 
     <!--
     !-页面内容距离ActionBar的默认距离-
     !-<dimen name="height_activity_top_margin">40dp</dimen>-->
-    <!--主页导航按钮高度-
-    <dimen name="height_activity_main_nav_button">80dp</dimen>
+
 
 
     !-Activity 登录 ActionBar 文本大小-

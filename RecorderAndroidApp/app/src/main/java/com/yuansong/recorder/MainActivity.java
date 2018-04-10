@@ -2,6 +2,7 @@ package com.yuansong.recorder;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 
 import android.support.v7.widget.Toolbar;
@@ -11,8 +12,8 @@ import com.yuansong.recorder.DB.ConfigDBHelper;
 public class MainActivity extends BaseActivity {
 
     private Toolbar mToolbar = null;
-    private Button btnGotoLogin = null;
-    private Button btnGotoSysConfig = null;
+    private Button mBtnAddRecord = null;
+    private Button mBtnRecordList = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,13 +24,33 @@ public class MainActivity extends BaseActivity {
         Log.i("WebAddress", ConfigDBHelper.getWebAddress());
 
         mToolbar = findViewById(R.id.toolbar);
-        btnGotoLogin = findViewById(R.id.btn_login);
-        btnGotoSysConfig = findViewById(R.id.btn_sys_config);
+        mBtnAddRecord = findViewById(R.id.btnAddRecord);
+        mBtnRecordList = findViewById(R.id.btnRecordList);
 
-
-        mToolbar.setTitle("Toolbar Title");
+        mToolbar.setTitle("Recorder");
         setSupportActionBar(mToolbar);
+
+        mBtnAddRecord.setText("增加记录");
+        mBtnAddRecord.setOnClickListener(new BtnAddRecordListener());
+
+        mBtnRecordList.setText("记录列表");
+        mBtnRecordList.setOnClickListener(new BtnRecordListListener());
+
     }
 
+    private class BtnAddRecordListener implements View.OnClickListener{
 
+        @Override
+        public void onClick(View v) {
+            Log.i("View.OnClickListener","BtnAddRecordListener");
+        }
+    }
+
+    private class BtnRecordListListener implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            Log.i("View.OnClickListener","BtnRecordListListener");
+        }
+    }
 }
