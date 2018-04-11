@@ -33,21 +33,22 @@ public class HelloActivity extends BaseActivity {
         Log.i("HelloActivity","onResume");
         this.checkConfig();
 
+//        if(reLoginCheck()){
+//            //跳转至Login
+//            CommonFun.showActivity(this,LoginActivity.class,true);
+//        }
+//        else {
+//            //跳转至Main
+//            CommonFun.showActivity(this,MainActivity.class,true);
+//        }
+
         //------------------------------------------------------------------------------------------
         //跳转测试
 //        CommonFun.showActivity(this,LoginActivity.class,true);
 //        CommonFun.showActivity(this,MainActivity.class,true);
 //        CommonFun.showActivity(this,SysConfigActivity.class,true);
+        CommonFun.showActivity(this,TestActivity.class,true);
         //------------------------------------------------------------------------------------------
-
-        if(reLoginCheck()){
-            //跳转至Login
-            CommonFun.showActivity(this,LoginActivity.class,true);
-        }
-        else {
-            //跳转至Main
-            CommonFun.showActivity(this,MainActivity.class,true);
-        }
     }
 
     private boolean reLoginCheck(){
