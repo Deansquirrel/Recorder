@@ -26,7 +26,6 @@
     </style>
 
     <style name="CustomTheme.ToolbarTitle" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="title">@string/default_toolbar_title</item>
         <item name="android:background">@color/whiteColor</item>
     </style>
 

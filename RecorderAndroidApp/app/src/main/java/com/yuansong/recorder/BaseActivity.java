@@ -3,6 +3,7 @@ package com.yuansong.recorder;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -36,18 +37,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        if(item.getItemId() == android.R.id.home){
-            clickActionBarBackBtn();
-            return true;
-        }
-        else{
-            return super.onOptionsItemSelected(item);
-        }
-    }
-
-    @Override
     protected void onPause() {
         super.onPause();
         Log.i("BaseActivity","onPause");
@@ -70,6 +59,25 @@ public abstract class BaseActivity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(item.getItemId() == android.R.id.home){
+            clickActionBarBackBtn();
+            return true;
+        }
+        else{
+            return super.onOptionsItemSelected(item);
+        }
+    }
+
+    protected void showBackOption(){
+        ActionBar ab = this.getSupportActionBar();
+        if(ab != null){
+            ab.setDisplayHomeAsUpEnabled(true);
+        }
+    }
+
     protected void clickActionBarBackBtn(){
         if(BaseActivity.this.isTaskRoot()){
             moveTaskToBack(false);
@@ -77,5 +85,5 @@ public abstract class BaseActivity extends AppCompatActivity {
         else{
             finish();
         }
-    };
+    }
 }

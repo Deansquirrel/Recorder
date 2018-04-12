@@ -42,7 +42,7 @@ public class LoginActivity extends BaseActivity {
 
         CommonFun.setFocus(LoginActivity.this,mEditTextUserName);
 
-        CommonFun.showActivity(LoginActivity.this,MainActivity.class,true);
+//        CommonFun.showActivity(LoginActivity.this,MainActivity.class,true);
     }
 
     private class BtnLoginListener implements View.OnClickListener{

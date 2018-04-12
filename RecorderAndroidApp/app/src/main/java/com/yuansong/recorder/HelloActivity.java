@@ -9,10 +9,15 @@ import com.yuansong.recorder.DB.CacheDBHelper;
 import com.yuansong.recorder.DB.ConfigDBHelper;
 
 import java.util.Calendar;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class HelloActivity extends BaseActivity {
 
     private ConfigDBHelper mConfigDBHelper = null;
+
+    private Timer mTimer = new Timer();
+    private TimerTask mTimerTask = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,22 +38,30 @@ public class HelloActivity extends BaseActivity {
         Log.i("HelloActivity","onResume");
         this.checkConfig();
 
-//        if(reLoginCheck()){
-//            //跳转至Login
-//            CommonFun.showActivity(this,LoginActivity.class,true);
-//        }
-//        else {
-//            //跳转至Main
-//            CommonFun.showActivity(this,MainActivity.class,true);
-//        }
+        mTimerTask = new TimerTask() {
+            @Override
+            public void run() {
+                //------------------------------------------------------------------------------------------
+                //跳转测试
+//                CommonFun.showActivity(HelloActivity.this,LoginActivity.class,true);
+//                CommonFun.showActivity(HelloActivity.this,MainActivity.class,true);
+//                CommonFun.showActivity(HelloActivity.this,SysConfigActivity.class,true);
+                CommonFun.showActivity(HelloActivity.this,TestActivity.class,true);
+                //------------------------------------------------------------------------------------------
 
-        //------------------------------------------------------------------------------------------
-        //跳转测试
-//        CommonFun.showActivity(this,LoginActivity.class,true);
-//        CommonFun.showActivity(this,MainActivity.class,true);
-//        CommonFun.showActivity(this,SysConfigActivity.class,true);
-        CommonFun.showActivity(this,TestActivity.class,true);
-        //------------------------------------------------------------------------------------------
+//                if(reLoginCheck()){
+//                    //跳转至Login
+//                    CommonFun.showActivity(HelloActivity.this,LoginActivity.class,true);
+//                }
+//                else {
+//                    //跳转至Main
+//                    CommonFun.showActivity(HelloActivity.this,MainActivity.class,true);
+//                }
+            }
+        };
+        mTimer.schedule(mTimerTask,1000);
+
+
     }
 
     private boolean reLoginCheck(){

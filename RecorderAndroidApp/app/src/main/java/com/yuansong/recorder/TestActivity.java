@@ -27,11 +27,16 @@ public class TestActivity extends BaseActivity {
         mEditTextMessage = findViewById(R.id.editTextMessage);
 
         mToolbar.setTitle("Test");
+        setSupportActionBar(mToolbar);
 
         mBtnTest.setText("Button Test");
         mBtnTest.setOnClickListener(new BtnTestClickListener());
 
         CommonFun.setFocus(this,mEditTextTele);
+
+
+        mToolbar.setContentInsetStartWithNavigation(0);
+        this.showBackOption();
     }
 
     private class BtnTestClickListener implements View.OnClickListener{
