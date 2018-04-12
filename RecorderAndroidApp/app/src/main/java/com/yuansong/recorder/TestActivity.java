@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.yuansong.recorder.AndroidFeatures.SMSHelper;
 import com.yuansong.recorder.Common.CommonFun;
 
 public class TestActivity extends BaseActivity {
@@ -45,19 +44,7 @@ public class TestActivity extends BaseActivity {
 
     private void subTest(){
         Log.i("TestActivity","subTest");
-        SMSHelper mSMSHelper = new SMSHelper();
-//        mSMSHelper.sendMessage("15555215556","Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。Test Message。");
-        String tele = mEditTextTele.getText().toString();
-        tele = tele.trim();
-        String message = mEditTextMessage.getText().toString();
-        message = message.trim();
-        if(tele.length() > 0 && message.length() > 0){
-            mSMSHelper.sendMessage(tele,message);
-        }
-        else{
-            CommonFun.showMsg(TestActivity.this,"电话或信息内容不能为空");
-        }
-
-        mSMSHelper.sendMessagePre(TestActivity.this,tele,message);
+        Log.i("phoneNumber",mEditTextTele.getText().toString().trim());
+        Log.i("message",mEditTextMessage.getText().toString().trim());
     }
 }

@@ -6,13 +6,10 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.Window;
 
 import com.yuansong.recorder.DB.CacheDBHelper;
-import com.yuansong.recorder.DB.ConfigDBHelper;
-import com.yuansong.recorder.Common.Global;
-
-import java.util.Calendar;
 
 /**
  * Created by yuansong on 2018/3/5.
@@ -35,6 +32,18 @@ public abstract class BaseActivity extends AppCompatActivity {
         Window window = this.getWindow();
         if(window != null){
             window.setStatusBarColor(this.getResources().getColor(R.color.whiteColor));
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(item.getItemId() == android.R.id.home){
+            clickActionBarBackBtn();
+            return true;
+        }
+        else{
+            return super.onOptionsItemSelected(item);
         }
     }
 
