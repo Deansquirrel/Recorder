@@ -1,4 +1,4 @@
-package com.yuansong.recorder;
+package com.yuansong.recorder.Activity;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -7,7 +7,9 @@ import android.widget.Button;
 
 import android.support.v7.widget.Toolbar;
 
+import com.yuansong.recorder.Common.CommonFun;
 import com.yuansong.recorder.DB.ConfigDBHelper;
+import com.yuansong.recorder.R;
 
 public class MainActivity extends BaseActivity {
 
@@ -43,6 +45,7 @@ public class MainActivity extends BaseActivity {
         @Override
         public void onClick(View v) {
             Log.i("View.OnClickListener","BtnAddRecordListener");
+            CommonFun.showActivity(MainActivity.this,RecordAddActivity.class,false);
         }
     }
 
@@ -51,6 +54,7 @@ public class MainActivity extends BaseActivity {
         @Override
         public void onClick(View v) {
             Log.i("View.OnClickListener","BtnRecordListListener");
+            CommonFun.showActivity(MainActivity.this,RecordListActivity.class,false);
         }
     }
 }

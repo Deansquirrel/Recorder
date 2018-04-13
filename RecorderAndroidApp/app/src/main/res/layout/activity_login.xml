@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/whiteColor"
-    tools:context="com.yuansong.recorder.LoginActivity">
+    tools:context="com.yuansong.recorder.Activity.LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,9 +18,9 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_actionbar_activity_login"
             app:title="LoginActivity"
-            app:titleTextAppearance="@style/CustomTheme.ToolbarTitle.Login"
+            style="@style/CustomTheme.Toolbar.Light.Login"
             />
-
+        <!--app:titleTextAppearance="@style/CustomTheme.ToolbarTitle.Login"-->
         <Space
             android:layout_width="match_parent"
             android:layout_height="0dp"

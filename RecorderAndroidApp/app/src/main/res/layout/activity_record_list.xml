@@ -4,13 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.yuansong.recorder.Activity.SysConfigActivity">
+    tools:context=".Activity.RecordListActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_actionbar_activity"
+            style="@style/CustomTheme.Toolbar.Dark"
+            app:title="RecordList Activity"
+            />
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="SysConfig"
+        android:text="TextView"
         android:theme="@style/CustomTheme.TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

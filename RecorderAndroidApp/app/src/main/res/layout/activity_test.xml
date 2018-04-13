@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TestActivity">
+    tools:context=".Activity.TestActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,11 +16,9 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_actionbar_activity"
-            android:background="@color/whiteColor"
-            app:title="TestActivity"
-            app:titleTextAppearance="@style/CustomTheme.ToolbarTitle"
-             />
 
+            app:title="TestActivity" />
+        <!--style="@style/CustomTheme.Toolbar.Light"-->
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

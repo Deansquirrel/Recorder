@@ -1,4 +1,4 @@
-package com.yuansong.recorder;
+package com.yuansong.recorder.Activity;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.yuansong.recorder.Common.CommonFun;
+import com.yuansong.recorder.R;
 
 public class TestActivity extends BaseActivity {
 
@@ -34,8 +35,6 @@ public class TestActivity extends BaseActivity {
 
         CommonFun.setFocus(this,mEditTextTele);
 
-
-        mToolbar.setContentInsetStartWithNavigation(0);
         this.showBackOption();
     }
 

@@ -1,4 +1,4 @@
-package com.yuansong.recorder;
+package com.yuansong.recorder.Activity;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.Window;
 
 import com.yuansong.recorder.DB.CacheDBHelper;
+import com.yuansong.recorder.R;
 
 /**
  * Created by yuansong on 2018/3/5.
@@ -29,11 +30,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         //竖屏
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        //标题栏置白
-        Window window = this.getWindow();
-        if(window != null){
-            window.setStatusBarColor(this.getResources().getColor(R.color.whiteColor));
-        }
+        setLightWindow();
     }
 
     @Override
@@ -84,6 +81,22 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
         else{
             finish();
+        }
+    }
+
+    protected void setDarkWindow(){
+        //标题栏颜色
+        Window window = this.getWindow();
+        if(window != null){
+            window.setStatusBarColor(this.getResources().getColor(R.color.themeBlueColor));
+        }
+    }
+
+    protected void setLightWindow(){
+        //标题栏置白
+        Window window = this.getWindow();
+        if(window != null){
+            window.setStatusBarColor(this.getResources().getColor(R.color.whiteColor));
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.yuansong.recorder;
+package com.yuansong.recorder.Activity;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -7,6 +7,7 @@ import com.yuansong.recorder.Common.CommonFun;
 import com.yuansong.recorder.Common.Global;
 import com.yuansong.recorder.DB.CacheDBHelper;
 import com.yuansong.recorder.DB.ConfigDBHelper;
+import com.yuansong.recorder.R;
 
 import java.util.Calendar;
 import java.util.Timer;
@@ -44,9 +45,9 @@ public class HelloActivity extends BaseActivity {
                 //------------------------------------------------------------------------------------------
                 //跳转测试
 //                CommonFun.showActivity(HelloActivity.this,LoginActivity.class,true);
-//                CommonFun.showActivity(HelloActivity.this,MainActivity.class,true);
+                CommonFun.showActivity(HelloActivity.this,MainActivity.class,true);
 //                CommonFun.showActivity(HelloActivity.this,SysConfigActivity.class,true);
-                CommonFun.showActivity(HelloActivity.this,TestActivity.class,true);
+//                CommonFun.showActivity(HelloActivity.this,TestActivity.class,true);
                 //------------------------------------------------------------------------------------------
 
 //                if(reLoginCheck()){

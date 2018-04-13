@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.yuansong.recorder.MainActivity">
+    tools:context="com.yuansong.recorder.Activity.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,9 +20,9 @@
             android:layout_height="@dimen/height_actionbar_activity"
             android:background="@color/whiteColor"
             app:title="MainActivity"
-            app:titleTextAppearance="@style/CustomTheme.ToolbarTitle"
-            />
 
+            />
+        <!--app:titleTextAppearance="@style/CustomTheme.Toolbar.Light"-->
 
         <ScrollView
             android:layout_width="match_parent"

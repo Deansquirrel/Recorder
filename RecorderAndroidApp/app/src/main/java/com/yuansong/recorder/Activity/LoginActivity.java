@@ -1,4 +1,4 @@
-package com.yuansong.recorder;
+package com.yuansong.recorder.Activity;
 
 import android.os.Bundle;
 
@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.yuansong.recorder.Common.CommonFun;
 import com.yuansong.recorder.Common.Global;
+import com.yuansong.recorder.R;
 
 public class LoginActivity extends BaseActivity {
 

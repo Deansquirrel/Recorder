@@ -1,6 +1,8 @@
-package com.yuansong.recorder;
+package com.yuansong.recorder.Activity;
 
 import android.os.Bundle;
+
+import com.yuansong.recorder.R;
 
 public class SysConfigActivity extends BaseActivity {
 
