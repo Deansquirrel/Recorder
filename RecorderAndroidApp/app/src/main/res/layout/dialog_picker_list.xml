@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/dialog_picker_list_textView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_actionbar_activity"
+            android:layout_marginLeft="@dimen/height_margin_default"
+            android:layout_marginRight="@dimen/height_margin_default"
+            android:singleLine="true"
+            android:gravity="center_vertical"
+            style="@style/CustomTheme.TextView.DialogTitle"
+            android:text="TextView" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ListView
+                android:id="@+id/dialog_picker_list_listView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:divider="@color/black_overlay"
+                android:dividerHeight="0.5dp"
+                >
+            </ListView>
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

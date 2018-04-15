@@ -14,13 +14,16 @@
     <!--</style>-->
 
     <style name="FullscreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/whiteColor</item>
+        <item name="colorPrimaryDark">@color/whiteColor</item>
+        <item name="colorAccent">@color/whiteColor</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">?android:windowNoTitle</item>
     </style>
 
     <style name="CustomTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
@@ -60,8 +63,17 @@
 
     <style name="CustomTheme.TextView">
         <item name="android:height">@dimen/height_context_line_default</item>
-        <item name="android:textColor">@color/blackColor</item>
+        <item name="android:textColor">@color/fontColor</item>
         <item name="android:textSize">@dimen/text_size_default</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="CustomTheme.TextView.Title" parent="@style/CustomTheme.TextView">
+        <item name="android:textColor">@color/fontLightColor</item>
+    </style>
+
+    <style name="CustomTheme.TextView.DialogTitle" parent="CustomTheme.TextView">
+        <item name="android:textColor">@color/fontLightColor</item>
     </style>
 
     <style name="CustomTheme.Button" parent="Widget.AppCompat.Button">

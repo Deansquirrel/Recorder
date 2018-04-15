@@ -8,6 +8,8 @@
     <color name="whiteColor">#FFFFFF</color>
     <color name="blackColor">#000000</color>
     <color name="backColor">#DEDEDE</color>
+    <color name="fontColor">#000000</color>
+    <color name="fontLightColor">#949494</color>
     <color name="lineColor">#D5D5D5</color>
     <color name="themeBlueColor">#1083CD</color>
     <color name="themeRedColor">#FF5A20</color>

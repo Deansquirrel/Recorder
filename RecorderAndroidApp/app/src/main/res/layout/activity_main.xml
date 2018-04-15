@@ -17,12 +17,17 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_actionbar_activity"
+            android:layout_height="wrap_content"
             android:background="@color/whiteColor"
-            app:title="MainActivity"
+            app:title="MainActivity">
 
-            />
+        </android.support.v7.widget.Toolbar>
         <!--app:titleTextAppearance="@style/CustomTheme.Toolbar.Light"-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/backColor"
+            ></View>
 
         <ScrollView
             android:layout_width="match_parent"

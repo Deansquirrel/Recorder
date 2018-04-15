@@ -20,7 +20,7 @@
 
     <!--高度-->
     <dimen name="height_actionbar_activity">45dp</dimen>
-    <dimen name="height_context_line_default">30dp</dimen>
+    <dimen name="height_context_line_default">40dp</dimen>
 
     <!--Activity 登录 ActionBar的高度-->
     <dimen name="height_actionbar_activity_login">90dp</dimen>

@@ -18,7 +18,6 @@ public class RecordListActivity extends BaseActivity {
         mToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
 
-        setDarkWindow();
         showBackOption();
     }
 }

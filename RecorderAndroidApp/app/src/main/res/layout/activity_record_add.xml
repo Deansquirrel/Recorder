@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/whiteColor"
     tools:context=".Activity.RecordAddActivity">
 
     <LinearLayout
@@ -14,23 +15,203 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_actionbar_activity"
+            android:layout_height="wrap_content"
             style="@style/CustomTheme.Toolbar.Light"
-            app:title="RecordAdd Activity"
+            app:title="RecordAdd"
              />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/backColor" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_margin_default" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="@dimen/height_margin_thick"
+                    android:layout_marginRight="@dimen/height_margin_thick">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="日  期"
+                        style="@style/CustomTheme.TextView.Title"/>
+                    <Space
+                        android:layout_width="@dimen/height_margin_thick"
+                        android:layout_height="match_parent" />
+                    <TextView
+                        android:id="@+id/textViewDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="2000-01-01"
+                        style="@style/CustomTheme.TextView"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="@dimen/height_margin_thick"
+                    android:layout_marginRight="@dimen/height_margin_thick">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="金  额"
+                        style="@style/CustomTheme.TextView.Title"/>
+                    <Space
+                        android:layout_width="@dimen/height_margin_thick"
+                        android:layout_height="match_parent" />
+                    <EditText
+                        android:id="@+id/editTextMoney"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        style="@style/CustomTheme.EditText"
+                        android:background="@color/transparent"
+                        android:inputType="numberDecimal"
+                        android:ems="10"
+                        android:hint="金  额" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/height_margin_thick"
+                    android:layout_marginRight="@dimen/height_margin_thick"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        style="@style/CustomTheme.TextView.Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="性  质" />
+                    <Space
+                        android:layout_width="@dimen/height_margin_thick"
+                        android:layout_height="match_parent" />
+                    <RadioGroup
+                        android:id="@+id/radioGroup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radioButtonZhc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:checked="true"
+                            android:text="支出" />
+                        <Space
+                            android:layout_width="@dimen/height_margin_thin"
+                            android:layout_height="match_parent" />
+                        <RadioButton
+                            android:id="@+id/radioButtonShr"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="收入" />
+                    </RadioGroup>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/height_margin_thick"
+                    android:layout_marginRight="@dimen/height_margin_thick">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="分  类"
+                        style="@style/CustomTheme.TextView.Title"/>
+                    <Space
+                        android:layout_width="@dimen/height_margin_thick"
+                        android:layout_height="match_parent" />
+                    <TextView
+                        android:id="@+id/textViewCategory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="选择分类"
+                        style="@style/CustomTheme.TextView"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="@dimen/height_margin_thick"
+                    android:layout_marginRight="@dimen/height_margin_thick">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="备  注"
+                        style="@style/CustomTheme.TextView.Title"/>
+                    <Space
+                        android:layout_width="@dimen/height_margin_thick"
+                        android:layout_height="match_parent" />
+                    <EditText
+                        android:id="@+id/editTextRemark"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        style="@style/CustomTheme.EditText"
+                        android:background="@color/transparent"
+                        android:hint="备注"
+                        android:ems="20"/>
+                </LinearLayout>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_margin_default" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="@dimen/height_margin_thick"
+                    android:layout_marginRight="@dimen/height_margin_thick">
+
+                    <Button
+                        android:id="@+id/btnReset"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="清 空"
+                        style="@style/CustomTheme.Button"/>
+                    <Space
+                        android:layout_width="@dimen/height_margin_thick"
+                        android:layout_height="match_parent" />
+                    <Button
+                        android:id="@+id/btnSubmit"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="确 定"
+                        style="@style/CustomTheme.Button"/>
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+        </ScrollView>
+
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="TextView"
-        android:theme="@style/CustomTheme.TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
 
 </android.support.constraint.ConstraintLayout>

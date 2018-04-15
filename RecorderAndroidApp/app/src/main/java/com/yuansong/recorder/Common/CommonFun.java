@@ -4,8 +4,16 @@ import android.content.Intent;
 import android.util.Log;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.DatePicker.OnDateChangedListener;
+
+import com.yuansong.recorder.Dialog.DatePickDlg;
+import com.yuansong.recorder.Dialog.ListPickDlg;
+
+import java.util.Map;
+import java.util.Calendar;
 
 /**
  * Created by yuansong on 2018/3/9.
@@ -22,10 +30,10 @@ public class CommonFun {
     public static void showActivity(AppCompatActivity context, Class<?> cls, boolean isQuit){
         Log.i("CommonFun","showActivity|" + context.getClass().toString() + "|" + cls.toString() + "|" + String.valueOf(isQuit));
         final Intent it = new Intent(context,cls);
+        context.startActivity(it);
         if(isQuit){
             context.finish();
         }
-        context.startActivity(it);
     }
 
     public static void setFocus(AppCompatActivity activity, EditText et){
@@ -61,4 +69,28 @@ public class CommonFun {
             activity.finish();
         }
     }
+
+    public static void showDatePickDlg(AppCompatActivity activity,
+                                       Calendar calendar,
+                                       DatePicker.OnDateChangedListener listener){
+
+        DatePickDlg dpd = new DatePickDlg();
+        dpd.setCurrCalendar(calendar);
+        dpd.setOnDateChangedListener(listener);
+        dpd.show(activity.getSupportFragmentManager(),"DateSelect");
+    }
+
+    public static void showListPickDlg(AppCompatActivity activity,
+                                       String title,
+                                       Map<String,String> data,
+                                       String currKey,
+                                       ListPickDlg.OnDataSelectListener listener){
+        ListPickDlg lpd = new ListPickDlg();
+        lpd.setTitle(title);
+        lpd.setCurrKey(currKey);
+        lpd.setData(data);
+        lpd.setOnDataSelectListener(listener);
+        lpd.show(activity.getSupportFragmentManager(),"ListSelect");
+    }
+
 }
