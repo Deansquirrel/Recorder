@@ -13,7 +13,9 @@
         android:theme="@style/CustomTheme">
         <activity
             android:name=".Activity.HelloActivity"
-            android:theme="@style/FullscreenTheme">
+            android:theme="@style/FullscreenTheme"
+            >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,7 +27,7 @@
         <activity android:name=".Activity.SysConfigActivity" />
         <activity android:name=".Activity.TestActivity" />
         <activity android:name=".Activity.RecordAddActivity" />
-        <activity android:name=".Activity.RecordListActivity"></activity>
+        <activity android:name=".Activity.RecordListActivity" />
     </application>
 
 </manifest>

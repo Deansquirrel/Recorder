@@ -13,14 +13,17 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.yuansong.recorder.Common.CommonFun;
 import com.yuansong.recorder.Common.ObjConvert;
 import com.yuansong.recorder.Dialog.ListPickDlg;
-import com.yuansong.recorder.Http.DataHander;
+import com.yuansong.recorder.Http.DataHandler;
 import com.yuansong.recorder.Inputfilter.DecimalDigitsInputFilter;
 import com.yuansong.recorder.R;
 
 import java.util.Calendar;
+import java.util.Map;
 
 public class RecordAddActivity extends BaseActivity {
 
@@ -28,7 +31,6 @@ public class RecordAddActivity extends BaseActivity {
     private static final int CATEGORY_TYPE_ZHC = 1;
 
     private Toolbar mToolbar = null;
-
     private TextView mTextViewDate = null;
     private EditText mEditTextMoney = null;
     private RadioGroup mRadioGroupCategory = null;
@@ -40,6 +42,8 @@ public class RecordAddActivity extends BaseActivity {
     private Button mBtnSubmit = null;
     private Button mBtnReset = null;
 
+    private Gson mGson = new Gson();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +54,7 @@ public class RecordAddActivity extends BaseActivity {
         setSupportActionBar(mToolbar);
 
         mTextViewDate = findViewById(R.id.textViewDate);
-        mTextViewDate.setText(ObjConvert.getDateStr(new java.util.Date(),"yyyy-MM-dd"));
+//        mTextViewDate.setText(ObjConvert.getDateStr(new java.util.Date(),"yyyy-MM-dd"));
 
         mEditTextMoney = findViewById(R.id.editTextMoney);
         mRadioGroupCategory = findViewById(R.id.radioGroup);
@@ -103,9 +107,11 @@ public class RecordAddActivity extends BaseActivity {
             }
         });
 
+        subInit();
     }
 
     private void updateRecordCategory(int categoryId,String categoryName){
+        Log.i("msg","updateRecordCategory");
         mRecordCategoryId = categoryId;
         mTextViewCategory.setText(categoryName);
     }
@@ -124,14 +130,20 @@ public class RecordAddActivity extends BaseActivity {
 
     private void subClickCategory(){
         Log.i("msg","subClickCategory");
-        int categoryType = -1;
+        int categoryType;
         if(mRadioButtonZhc.isChecked()){
             categoryType = CATEGORY_TYPE_ZHC;
         }
-        else{
+        else if(mRadioButtonShr.isChecked()){
             categoryType = CATEGORY_TYPE_SHR;
         }
-        CommonFun.showListPickDlg(this, "选择分类", DataHander.getCategoryList(categoryType), "", new ListPickDlg.OnDataSelectListener() {
+        else{
+            categoryType = CATEGORY_TYPE_ZHC;
+            mRadioButtonZhc.setChecked(true);
+        }
+
+        Map<String,String> categoryList = mGson.fromJson(DataHandler.getCategoryList(categoryType), new TypeToken<Map<String,String>>(){}.getType());
+        CommonFun.showListPickDlg(this, "选择分类", categoryList, "", new ListPickDlg.OnDataSelectListener() {
             @Override
             public void onDataSelect(String key, String value) {
                 updateRecordCategory(Integer.valueOf(key),value);
@@ -141,30 +153,67 @@ public class RecordAddActivity extends BaseActivity {
 
     private void subBtnClickSubmit(){
         Log.i("msg","subBtnClickSubmit");
+
+        mBtnSubmit.setEnabled(false);
+        mBtnReset.setEnabled(false);
+
         Log.i("Date",mTextViewDate.getText().toString());
         Log.i("Money",mEditTextMoney.getText().toString());
         Log.i("CategoryId",String.valueOf(mRecordCategoryId));
         Log.i("CategoryName",mTextViewCategory.getText().toString());
         Log.i("Remark",mEditTextRemark.getText().toString());
 
-        String msg = mTextViewDate.getText().toString();
-        msg = msg + "\n" + mEditTextMoney.getText().toString();
-        msg = msg + "\n" + String.valueOf(mRecordCategoryId);
-        msg = msg + "\n" + mTextViewCategory.getText().toString();
-        msg = msg + "\n" + mEditTextRemark.getText().toString();
+        if(subSubmitCheck()){
+            String msg = mTextViewDate.getText().toString();
+            msg = msg + "\n" + mEditTextMoney.getText().toString();
+            msg = msg + "\n" + String.valueOf(mRecordCategoryId);
+            msg = msg + "\n" + mTextViewCategory.getText().toString();
+            msg = msg + "\n" + mEditTextRemark.getText().toString();
+            CommonFun.showMsg(this,msg);
+            subInit();
+        }
 
-        CommonFun.showMsg(this,msg);
+        mBtnSubmit.setEnabled(true);
+        mBtnReset.setEnabled(true);
     }
 
     private void subBtnClickReset(){
         Log.i("msg","subBtnClickReset");
+
+        mBtnSubmit.setEnabled(false);
+        mBtnReset.setEnabled(false);
+
+        subInit();
+        CommonFun.setFocus(this,mEditTextMoney);
+
+        mBtnSubmit.setEnabled(false);
+        mBtnReset.setEnabled(false);
+    }
+
+    private void subInit(){
+        Log.i("msg","subInit");
         mTextViewDate.setText(ObjConvert.getDateStr(Calendar.getInstance().getTime(),"yyyy-MM-dd"));
         mEditTextMoney.setText("");
         mRadioButtonZhc.setChecked(true);
         updateRecordCategory(-1,"");
         mEditTextRemark.setText("");
+    }
 
-        CommonFun.setFocus(this,mEditTextMoney);
+    private boolean subSubmitCheck(){
+        Log.i("msg","subSubmitCheck");
+
+        String money = mEditTextMoney.getText().toString();
+        if(money.trim().equals("")){
+            CommonFun.showMsg(RecordAddActivity.this,"余额不能为空");
+            CommonFun.setFocus(RecordAddActivity.this,mEditTextMoney);
+            return false;
+        }
+
+        if(mRecordCategoryId < 0) {
+            CommonFun.showMsg(RecordAddActivity.this, "请选择所属分类");
+            return false;
+        }
+        return true;
     }
 
 }

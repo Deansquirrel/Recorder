@@ -14,6 +14,8 @@ import com.yuansong.recorder.Dialog.ListPickDlg;
 
 import java.util.Map;
 import java.util.Calendar;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by yuansong on 2018/3/9.
@@ -21,18 +23,27 @@ import java.util.Calendar;
 
 public class CommonFun {
 
+    private static Timer mTimer = new Timer();
+    private static TimerTask mTimerTask = null;
+
     private CommonFun(){}
 
     public static String createNewGuid(){
         return java.util.UUID.randomUUID().toString().toUpperCase();
     }
 
-    public static void showActivity(AppCompatActivity context, Class<?> cls, boolean isQuit){
+    public static void showActivity(final AppCompatActivity context, Class<?> cls, boolean isQuit){
         Log.i("CommonFun","showActivity|" + context.getClass().toString() + "|" + cls.toString() + "|" + String.valueOf(isQuit));
         final Intent it = new Intent(context,cls);
         context.startActivity(it);
         if(isQuit){
-            context.finish();
+            mTimerTask = new TimerTask() {
+                @Override
+                public void run() {
+                    context.finish();
+                }
+            };
+            mTimer.schedule(mTimerTask,100);
         }
     }
 

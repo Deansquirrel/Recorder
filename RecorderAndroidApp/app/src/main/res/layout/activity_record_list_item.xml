@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingVertical="@dimen/height_margin_thin"
+        android:paddingHorizontal="@dimen/height_margin_default"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.66"
+            android:orientation="vertical">
+            <!--android:layout_height="@dimen/height_context_line_default"-->
+            <TextView
+                android:id="@+id/textView_RemarkOrCategory"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_context_line_thin"
+                android:gravity="center_vertical"
+                android:ellipsize="end"
+                android:singleLine="true"
+                style="@style/CustomTheme.TextView"
+                android:text="Remark" />
+
+            <TextView
+                android:id="@+id/textView_CategoryOrNull"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_context_line_thin"
+                android:textSize="@dimen/text_size_smaller"
+                android:textColor="@color/fontLightColor"
+                android:gravity="center_vertical"
+                android:ellipsize="end"
+                android:singleLine="true"
+                style="@style/CustomTheme.TextView"
+                android:text="Categroy" />
+
+            <TextView
+                android:id="@+id/textView_Date"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_context_line_thin"
+                android:textSize="@dimen/text_size_smaller"
+                android:textColor="@color/fontLightColor"
+                android:gravity="center_vertical"
+                android:ellipsize="end"
+                android:singleLine="true"
+                style="@style/CustomTheme.TextView"
+                android:text="Date" />
+        </LinearLayout>
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.02"
+            />
+
+        <TextView
+            android:id="@+id/textView_Money"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.32"
+            android:gravity="center_vertical|right"
+            style="@style/CustomTheme.TextView"
+            android:text="-123456.00" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

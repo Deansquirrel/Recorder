@@ -46,6 +46,7 @@ public class HelloActivity extends BaseActivity {
                 //跳转测试
 //                CommonFun.showActivity(HelloActivity.this,LoginActivity.class,true);
                 CommonFun.showActivity(HelloActivity.this,MainActivity.class,true);
+//                CommonFun.showActivity(HelloActivity.this,RecordAddActivity.class,false);
 //                CommonFun.showActivity(HelloActivity.this,SysConfigActivity.class,true);
 //                CommonFun.showActivity(HelloActivity.this,TestActivity.class,true);
                 //------------------------------------------------------------------------------------------
