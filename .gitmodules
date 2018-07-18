@@ -1,0 +1,3 @@
+[submodule "RecorderWebApi/proj/src/main/java/com/yuansong/common"]
+	path = RecorderWebApi/proj/src/main/java/com/yuansong/common
+	url = https://github.com/Deansquirrel/JWebCommon.git
