@@ -16,8 +16,8 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.yuansong.common.DateTool;
 import com.yuansong.recorder.Common.CommonFun;
-import com.yuansong.recorder.Common.ObjConvert;
 import com.yuansong.recorder.Http.DataHandler;
 import com.yuansong.recorder.R;
 
@@ -96,8 +96,8 @@ public class RecordListActivity extends BaseActivity {
     }
 
     private void subInit(){
-        mTextViewStartDate.setText(ObjConvert.getDateStr(Calendar.getInstance().getTime(),"yyyy-MM-dd"));
-        mTextViewEndDate.setText(ObjConvert.getDateStr(Calendar.getInstance().getTime(),"yyyy-MM-dd"));
+        mTextViewStartDate.setText(DateTool.getDateStr("yyyy-MM-dd"));
+        mTextViewEndDate.setText(DateTool.getDateStr("yyyy-MM-dd"));
     }
 
     private void subClickStartDate(){
@@ -107,7 +107,7 @@ public class RecordListActivity extends BaseActivity {
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 Calendar date = Calendar.getInstance();
                 date.set(year,monthOfYear,dayOfMonth,0,0,0);
-                mTextViewStartDate.setText(ObjConvert.getDateStr(date.getTime(),"yyyy-MM-dd"));
+                mTextViewStartDate.setText(DateTool.getDateStr(date.getTime(),"yyyy-MM-dd"));
             }
         });
     }
@@ -119,7 +119,7 @@ public class RecordListActivity extends BaseActivity {
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 Calendar date = Calendar.getInstance();
                 date.set(year,monthOfYear,dayOfMonth,0,0,0);
-                mTextViewEndDate.setText(ObjConvert.getDateStr(date.getTime(),"yyyy-MM-dd"));
+                mTextViewEndDate.setText(DateTool.getDateStr(date.getTime(),"yyyy-MM-dd"));
             }
         });
     }
@@ -130,8 +130,8 @@ public class RecordListActivity extends BaseActivity {
         Calendar endDate = Calendar.getInstance();
 
         try {
-            startDate.setTime(ObjConvert.getDateFromStr(mTextViewStartDate.getText().toString(),"yyyy-MM-dd"));
-            endDate.setTime(ObjConvert.getDateFromStr(mTextViewEndDate.getText().toString(),"yyyy-MM-dd"));
+            startDate.setTime(DateTool.getDateFromStr(mTextViewStartDate.getText().toString(),"yyyy-MM-dd"));
+            endDate.setTime(DateTool.getDateFromStr(mTextViewEndDate.getText().toString(),"yyyy-MM-dd"));
         } catch (ParseException e) {
             CommonFun.showError(RecordListActivity.this,"日期格式转换错误",false);
             e.printStackTrace();
@@ -151,9 +151,11 @@ public class RecordListActivity extends BaseActivity {
         Calendar startDate = Calendar.getInstance();
         Calendar endDate = Calendar.getInstance();
 
+
+
         try {
-            startDate.setTime(ObjConvert.getDateFromStr(mTextViewStartDate.getText().toString(),"yyyy-MM-dd"));
-            endDate.setTime(ObjConvert.getDateFromStr(mTextViewEndDate.getText().toString(),"yyyy-MM-dd"));
+            startDate.setTime(DateTool.getDateFromStr(mTextViewStartDate.getText().toString(),"yyyy-MM-dd"));
+            endDate.setTime(DateTool.getDateFromStr(mTextViewEndDate.getText().toString(),"yyyy-MM-dd"));
         } catch (ParseException e) {
             CommonFun.showError(RecordListActivity.this,"日期格式转换错误",false);
             e.printStackTrace();

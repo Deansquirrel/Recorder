@@ -15,8 +15,8 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.yuansong.common.DateTool;
 import com.yuansong.recorder.Common.CommonFun;
-import com.yuansong.recorder.Common.ObjConvert;
 import com.yuansong.recorder.Dialog.ListPickDlg;
 import com.yuansong.recorder.Http.DataHandler;
 import com.yuansong.recorder.Inputfilter.DecimalDigitsInputFilter;
@@ -54,7 +54,6 @@ public class RecordAddActivity extends BaseActivity {
         setSupportActionBar(mToolbar);
 
         mTextViewDate = findViewById(R.id.textViewDate);
-//        mTextViewDate.setText(ObjConvert.getDateStr(new java.util.Date(),"yyyy-MM-dd"));
 
         mEditTextMoney = findViewById(R.id.editTextMoney);
         mRadioGroupCategory = findViewById(R.id.radioGroup);
@@ -123,7 +122,7 @@ public class RecordAddActivity extends BaseActivity {
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 Calendar mCalendar = Calendar.getInstance();
                 mCalendar.set(year,monthOfYear,dayOfMonth,0,0,0);
-                mTextViewDate.setText(ObjConvert.getDateStr(mCalendar.getTime(),"yyyy-MM-dd"));
+                mTextViewDate.setText(DateTool.getDateStr("yyyy-MM-dd"));
             }
         });
     }
@@ -192,7 +191,7 @@ public class RecordAddActivity extends BaseActivity {
 
     private void subInit(){
         Log.i("msg","subInit");
-        mTextViewDate.setText(ObjConvert.getDateStr(Calendar.getInstance().getTime(),"yyyy-MM-dd"));
+        mTextViewDate.setText(DateTool.getDateStr("yyyy-MM-dd"));
         mEditTextMoney.setText("");
         mRadioButtonZhc.setChecked(true);
         updateRecordCategory(-1,"");

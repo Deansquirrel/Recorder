@@ -3,14 +3,13 @@ package com.yuansong.recorder.Http;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.yuansong.recorder.Common.ObjConvert;
+import com.yuansong.common.DateTool;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 public class DataHandler {
 
@@ -42,8 +41,8 @@ public class DataHandler {
      */
     public static String getRecordList(Calendar startDate,Calendar endDate){
         Log.i("DataHandler","getRecordList");
-        Log.i("startDate", ObjConvert.getDateStr(startDate.getTime(),"yyyy-MM-dd"));
-        Log.i("endDate", ObjConvert.getDateStr(endDate.getTime(),"yyyy-MM-dd"));
+        Log.i("startDate", DateTool.getDateStr(startDate.getTime(),"yyyy-MM-dd"));
+        Log.i("endDate", DateTool.getDateStr(endDate.getTime(),"yyyy-MM-dd"));
 
         List<Map<String,String>> resultList = new ArrayList();
         for(int i=0;i<10;i++){
@@ -55,12 +54,12 @@ public class DataHandler {
 //            private String mRemark = "";
 //            private String mAddTime = "";
 
-            record.put("date",ObjConvert.getDateStr(Calendar.getInstance().getTime(),"yyyy-MM-dd"));
+            record.put("date", DateTool.getDateStr("yyyy-MM-dd"));
             record.put("money", String.valueOf(i));
             record.put("categoryId",String.valueOf(i));
             record.put("categoryName","Category - " + String.valueOf(i));
             record.put("remark","Remark - " + String.valueOf(i));
-            record.put("addTime",ObjConvert.getDateStr(Calendar.getInstance().getTime(),"yyyy-MM-dd HH:SS"));
+            record.put("addTime", DateTool.getDateStr("yyyy-MM-dd HH:SS"));
 
             resultList.add(record);
         }

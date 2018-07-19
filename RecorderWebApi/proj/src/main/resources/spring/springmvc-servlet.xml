@@ -17,6 +17,8 @@
 
 	<context:component-scan base-package="com.yuansong.controller" />
 	<context:component-scan base-package="com.yuansong.service" />
+	<context:component-scan base-package="com.yuansong.task" />
+	
 	<!--
 	<context:component-scan base-package="com.yuansong.VO" />
 	<context:component-scan base-package="com.yuansong.data.repository" />
@@ -51,7 +53,7 @@
       -->
 	<mvc:resources location="*.html" mapping="/" />
 	<mvc:resources location="*.css" mapping="/" />
-
+	 
 	<task:annotation-driven executor="myExecutor" scheduler="myScheduler" />
 	<task:executor id="myExecutor" pool-size="50" />
 	<task:scheduler id="myScheduler" pool-size="1000" />
