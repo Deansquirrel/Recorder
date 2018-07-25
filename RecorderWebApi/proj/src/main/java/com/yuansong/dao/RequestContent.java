@@ -6,12 +6,27 @@ import java.util.Map;
 public class RequestContent {
 	
 	private Map<String, String> scalarParBody;
-	
 	private Map<String, Map<String, String>> recordParBody;
 	
 	public RequestContent() {
 		scalarParBody = new HashMap<String,String>();		
 		recordParBody = new HashMap<String, Map<String, String>>();
+	}
+	
+	public Map<String, String> getScalarParBody() {
+		return scalarParBody;
+	}
+
+	public void setScalarParBody(Map<String, String> scalarParBody) {
+		this.scalarParBody = scalarParBody;
+	}
+	
+	public Map<String, Map<String, String>> getRecordParBody() {
+		return recordParBody;
+	}
+
+	public void setRecordParBody(Map<String, Map<String, String>> recordParBody) {
+		this.recordParBody = recordParBody;
 	}
 
 	public void addScalarPar(String key, String value) {

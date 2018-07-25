@@ -1,7 +1,6 @@
 package com.yuansong.task;
 
 import org.apache.log4j.Logger;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import com.yuansong.common.DateTool;
@@ -31,9 +30,9 @@ public class TestTask {
 //        logger.info("testInitialDelay - " + DateTool.getDateStr());
 //    }
 	
-	@Scheduled(cron = "0 0/1 * * * ?")
-    public void testCron(){
-        logger.info("testCron - " + DateTool.getDateStr());
-    }
+//	@Scheduled(cron = "0 0/1 * * * ?")
+//    public void testCron(){
+//        logger.info("testCron - " + DateTool.getDateStr());
+//    }
 
 }

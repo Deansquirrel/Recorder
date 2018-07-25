@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerExceptionResolverComposite;
 
 import com.google.gson.Gson;
+import com.yuansong.dao.ResponseData;
 import com.yuansong.service.IDataFormatService;
 
 public class ExceptionHandler extends HandlerExceptionResolverComposite {
@@ -27,28 +28,31 @@ public class ExceptionHandler extends HandlerExceptionResolverComposite {
 	
 	public ModelAndView resolveException(HttpServletRequest request,   
             HttpServletResponse response, Object handler, Exception ex) {
-		
-		logger.error(ex.getMessage());
 				
-		Map<String, Object> model = new HashMap<String, Object>();
-		
 		StringWriter sw = new StringWriter();   
         PrintWriter pw = new PrintWriter(sw, true);   
         ex.printStackTrace(pw);   
         pw.flush();   
         sw.flush();   
         
-        Map<String,String> data = new HashMap<String,String>();
-		data.put("errCode", "404");
-		data.put("errDesc","Page not found.");
-			
-		data.put("errCode", "503");
-		data.put("errDesc", ex.getMessage());
-		data.put("errPath", sw.toString());
+        logger.error(ex.getMessage());
+        logger.error(sw.toString());
+        
+        
+		Map<String,String> model = new HashMap<String,String>();
+		model.put("info", dataFormatService.OFormat(mGson.toJson(new ResponseData("", "500","",sw.toString(),null,null))));
+        
+//        Map<String,String> data = new HashMap<String,String>();
+//		data.put("errCode", "404");
+//		data.put("errDesc","Page not found.");
+//			
+//		data.put("errCode", "503");
+//		data.put("errDesc", ex.getMessage());
+//		data.put("errPath", sw.toString());
 		
-		model.put("info", dataFormatService.OFormat(mGson.toJson(data)));
+//		model.put("info", dataFormatService.OFormat(mGson.toJson(data)));
 		
-        return new ModelAndView("errorPage",model);   
+        return new ModelAndView("responsePage",model);   
     }
 
 }

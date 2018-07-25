@@ -13,6 +13,14 @@ public class ResponseContent {
 		scalarParBody = new HashMap<String,String>();		
 		recordParBody = new HashMap<String, Map<String, String>>();
 	}
+	
+	public ResponseContent(
+			Map<String, String> scalarParBody,
+			Map<String, Map<String, String>> recordParBody
+			) {
+		this.scalarParBody = scalarParBody;		
+		this.recordParBody = recordParBody;
+	}
 
 	public void addScalarPar(String key, String value) {
 		scalarParBody.put(key, value);
