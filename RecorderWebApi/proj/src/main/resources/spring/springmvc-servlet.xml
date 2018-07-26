@@ -18,6 +18,7 @@
 	<context:component-scan base-package="com.yuansong.controller" />
 	<context:component-scan base-package="com.yuansong.service" />
 	<context:component-scan base-package="com.yuansong.task" />
+	<context:component-scan base-package="com.yuansong.repository" />
 	
 	<!--
 	<context:component-scan base-package="com.yuansong.VO" />

@@ -1,6 +1,6 @@
 package com.yuansong.service;
 
-public interface IDataFormatService {
+public interface DataFormatService {
 	
 	/**
 	 * 传入数据逆格式化

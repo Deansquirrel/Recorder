@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import com.yuansong.common.IdWorker;
 
 @Service
-public class SnoServiceImpl implements ISnoService {
+public class SnoServiceImpl implements SnoService {
 
 	@Override
 	public long nextId() {

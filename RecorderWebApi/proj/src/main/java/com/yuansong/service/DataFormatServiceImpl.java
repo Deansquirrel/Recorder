@@ -3,7 +3,7 @@ package com.yuansong.service;
 import org.springframework.stereotype.Service;
 
 @Service
-public class DataFormatServiceImpl implements IDataFormatService {
+public class DataFormatServiceImpl implements DataFormatService {
 
 	@Override
 	public String IFormat(String data) {

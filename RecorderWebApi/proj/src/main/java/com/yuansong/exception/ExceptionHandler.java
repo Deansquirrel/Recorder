@@ -14,8 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerExceptionResolverComposite;
 
 import com.google.gson.Gson;
-import com.yuansong.dao.ResponseData;
-import com.yuansong.service.IDataFormatService;
+import com.yuansong.httpio.ResponseData;
+import com.yuansong.service.DataFormatService;
 
 public class ExceptionHandler extends HandlerExceptionResolverComposite {
 	
@@ -24,7 +24,7 @@ public class ExceptionHandler extends HandlerExceptionResolverComposite {
 	private Gson mGson = new Gson();
 	
 	@Autowired
-	private IDataFormatService dataFormatService;
+	private DataFormatService dataFormatService;
 	
 	public ModelAndView resolveException(HttpServletRequest request,   
             HttpServletResponse response, Object handler, Exception ex) {

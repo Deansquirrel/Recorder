@@ -1,6 +1,6 @@
 package com.yuansong.service;
 
-public interface ISnoService {
+public interface SnoService {
 	
 	/**
 	 * 生成ID

@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
-import com.yuansong.dao.ResponseData;
-import com.yuansong.service.IDataFormatService;
+import com.yuansong.httpio.ResponseData;
+import com.yuansong.service.DataFormatService;
 
 @Controller
 @RequestMapping(value="/")
@@ -22,7 +22,7 @@ public class RootController {
 	private final Gson mGson = new Gson();
 	
 	@Autowired
-	private IDataFormatService dataFormatService;
+	private DataFormatService dataFormatService;
 	
 //	@RequestMapping(value="/")
 //	public ModelAndView defaultPage(Map<String, Object> model){

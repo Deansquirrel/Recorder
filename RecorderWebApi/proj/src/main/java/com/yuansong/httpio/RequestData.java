@@ -1,4 +1,4 @@
-package com.yuansong.dao;
+package com.yuansong.httpio;
 
 public class RequestData {
 	
