@@ -1,4 +1,4 @@
-package com.yuansong.pojo.form;
+package com.yuansong.controller.form;
 
 public class EmpInfoAddForm {
 	

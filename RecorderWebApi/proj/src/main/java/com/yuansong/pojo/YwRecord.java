@@ -11,7 +11,7 @@ public class YwRecord {
 	private String remark;
 	private Date addTime;
 	private Date lastUpdate;
-	private boolean delete;
+	private boolean deleted;
 	
 	public Integer getId() {
 		return id;
@@ -55,11 +55,11 @@ public class YwRecord {
 	public void setLastUpdate(Date lastUpdate) {
 		this.lastUpdate = lastUpdate;
 	}
-	public boolean isDelete() {
-		return delete;
+	public boolean isDeleted() {
+		return deleted;
 	}
-	public void setDelete(boolean delete) {
-		this.delete = delete;
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
 	}
 
 }

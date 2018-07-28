@@ -1,17 +1,29 @@
 package com.yuansong.service;
 
-import com.yuansong.pojo.EmpInfo;
-
 public interface EmpService {
 	
-	public void addEmp(EmpInfo empInfo);
+	public void addEmp(String userName) throws Exception ;
 	
-	public void delEmp(EmpInfo empInfo);
+	public void delEmp(Integer id);
 	
-	public void disableEmp(EmpInfo empInfo);
+	public void disableEmp(Integer id);
+
+	public void enableEmp(Integer id) throws Exception;
+
+//	public List<EmpInfo> getEmpList();
+//	
+//	public List<EmpInfo> getEmpList(boolean delete);
 	
-	public void enableEmp(EmpInfo empInfo);
+	public boolean checkUser(String loginName, String userPwd);
 	
-	public Integer getNewEmpInfoId();
+	public Integer getUserId(String loginName);
+	
+	public void addEmpLogin(Integer userId, String userName, String userPwd) throws Exception ;
+	
+	public void delEmpLogin(Integer id);
+	
+	public void disableEmpLogin(Integer id);
+
+	public void enableEmpLogin(Integer id) throws Exception;
 
 }

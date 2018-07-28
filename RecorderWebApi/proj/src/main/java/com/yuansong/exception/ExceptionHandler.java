@@ -14,7 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerExceptionResolverComposite;
 
 import com.google.gson.Gson;
-import com.yuansong.httpio.ResponseData;
 import com.yuansong.service.DataFormatService;
 
 public class ExceptionHandler extends HandlerExceptionResolverComposite {
@@ -39,8 +38,12 @@ public class ExceptionHandler extends HandlerExceptionResolverComposite {
         logger.error(sw.toString());
         
         
+        Map<String,Object> data = new HashMap<String,Object>();
+        data.put("errCode", 500);
+        data.put("errMsg", ex.getMessage());
+        
 		Map<String,String> model = new HashMap<String,String>();
-		model.put("info", dataFormatService.OFormat(mGson.toJson(new ResponseData("", "500","",sw.toString(),null,null))));
+		model.put("info", dataFormatService.OFormat(mGson.toJson(data)));
         
 //        Map<String,String> data = new HashMap<String,String>();
 //		data.put("errCode", "404");

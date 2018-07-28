@@ -9,7 +9,27 @@ public class EmpLogin {
 	private String userPwd;
 	private Date addTime;
 	private Date lastUpdate;
-	private boolean delete;
+	private boolean deleted;
+	
+	public EmpLogin() {
+		
+	}
+	
+	public EmpLogin(
+			Integer userId,
+			String loginName,
+			String userPwd,
+			Date addTime,
+			Date lastUpdate,
+			boolean deleted
+			) {
+		this.userId = userId;
+		this.loginName = loginName;
+		this.userPwd = userPwd;
+		this.addTime = addTime;
+		this.lastUpdate = lastUpdate;
+		this.deleted = deleted;
+	}
 	
 	public Integer getUserId() {
 		return userId;
@@ -41,11 +61,11 @@ public class EmpLogin {
 	public void setLastUpdate(Date lastUpdate) {
 		this.lastUpdate = lastUpdate;
 	}
-	public boolean isDelete() {
-		return delete;
+	public boolean isDeleted() {
+		return deleted;
 	}
-	public void setDelete(boolean delete) {
-		this.delete = delete;
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
 	}
 
 }

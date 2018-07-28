@@ -8,18 +8,18 @@ public class EmpInfo {
 	private String userName;
 	private Date addTime;
 	private Date lastUpdate;
-	private boolean delete;
+	private boolean deleted;
 	
 	public EmpInfo() {
 		
 	}
 	
-	public EmpInfo(Integer userId, String userName, Date addTime, Date lastUpdate, boolean delete) {
+	public EmpInfo(Integer userId, String userName, Date addTime, Date lastUpdate, boolean deleted) {
 		this.userId = userId;
 		this.userName = userName;
 		this.addTime = addTime;
 		this.lastUpdate = lastUpdate;
-		this.delete = delete;
+		this.deleted = deleted;
 	}
 	
 	public Integer getUserId() {
@@ -46,11 +46,11 @@ public class EmpInfo {
 	public void setLastUpdate(Date lastUpdate) {
 		this.lastUpdate = lastUpdate;
 	}
-	public boolean isDelete() {
-		return delete;
+	public boolean isDeleted() {
+		return deleted;
 	}
-	public void setDelete(boolean delete) {
-		this.delete = delete;
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
 	}
 
 }
